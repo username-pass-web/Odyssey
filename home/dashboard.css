@@ -1,0 +1,477 @@
+/**
+ * Estilos para el dashboard principal
+ * 
+ * Características:
+ * - Sistema unificado de variables CSS
+ * - Animaciones de carga y transiciones
+ * - Diseño responsive para todos los dispositivos
+ * - Componentes: tarjetas, pestañas, estadísticas
+ */
+
+/* Sistema de variables CSS */
+:root {
+    --primary-text: #111418;
+    --secondary-text: #617289;
+    --background-white: #ffffff;
+    --border-light: #f0f2f4;
+    --border-medium: #dbe0e6;
+    --border-dark: #c5ccd6;
+    --background-gray: #f0f2f4;
+    --hover-background: #f9fafb;
+    --shadow-light: rgba(0, 0, 0, 0.08);
+    --shadow-medium: rgba(0, 0, 0, 0.1);
+}
+
+/* Reset y estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Lexend, "Noto Sans", sans-serif;
+    background-color: var(--background-white);
+    color: var(--primary-text);
+    opacity: 0;
+        animation: fadeIn 0.5s ease 0.5s forwards; /* Animación de entrada */
+}
+
+p {
+    line-height: 1.5 !important;
+}
+
+/* Animación de entrada suave */
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+/* Layout principal */
+.layout-container {
+    display: flex;
+    height: 100%;
+    flex-grow: 1;
+    flex-direction: column;
+}
+
+/* Encabezado */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    white-space: nowrap;
+    border-bottom: 1px solid var(--border-light);
+    padding: 12px 40px;
+}
+
+/* Logo y título */
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: var(--primary-text);
+}
+
+.logo-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.header-title {
+    color: var(--primary-text);
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+}
+
+/* Navegación y botones */
+.header-right {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    gap: 32px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+}
+
+.nav-link {
+    color: var(--primary-text);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.4;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+    color: var(--secondary-text);
+}
+
+.header-btn {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 50px;
+    gap: 8px;
+    padding: 10px;
+    border: none;
+    background: transparent;
+    transition: background-color 0.2s ease;
+}
+
+.header-btn:hover {
+    background-color: var(--hover-background);
+}
+
+/* Contenido principal */
+.main-content {
+    gap: 4px;
+    padding: 0 24px;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.content-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 920px;
+    flex: 1;
+}
+
+/* Título del dashboard */
+.dashboard-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 16px;
+}
+
+.dashboard-title {
+    color: var(--primary-text);
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.2;
+    min-width: 288px;
+}
+
+/* Sistema de pestañas */
+.tabs-header {
+    display: flex;
+    border-bottom: 1px solid var(--border-medium);
+    padding: 0 16px;
+    gap: 32px;
+}
+
+.tab {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 3px solid transparent;
+    color: var(--secondary-text);
+    padding-bottom: 13px;
+    padding-top: 16px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.tab:hover {
+    color: var(--primary-text);
+}
+
+.tab.active {
+    border-bottom-color: var(--primary-text);
+    color: var(--primary-text);
+}
+
+.tab p {
+    color: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: 0.015em;
+}
+
+/* Contenido de secciones */
+.section-content {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.section-content.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Estilos para tarjetas (cursos y consejos) */
+.course-section, .advice-container {
+    padding: 16px;
+}
+
+.course-card, .advice-item {
+    width: 100%;
+    text-align: left;
+    background: var(--background-white);
+    border: 1px solid var(--border-medium);
+    border-radius: 12px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+.advice-item {
+    margin-bottom: 16px;
+}
+
+/* Efectos hover para tarjetas */
+.course-card:hover, .advice-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--shadow-medium);
+    border-color: var(--border-dark);
+}
+
+/* Contenedor de tarjetas de cursos */
+.course-card-container {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 16px;
+    border-radius: 12px;
+    padding: 16px;
+    transition: background-color 0.2s ease;
+}
+
+.course-card-container:hover {
+    background-color: var(--hover-background);
+}
+
+/* Información de cursos */
+.course-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 2;
+}
+
+.course-category, .advice-id {
+    color: var(--secondary-text);
+    font-size: 14px;
+}
+
+.course-title, .advice-title {
+    color: var(--primary-text);
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.course-description, .advice-description {
+    color: var(--secondary-text);
+    font-size: 16px;
+}
+
+
+.course-image {
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 12px;
+    flex: 1;
+    aspect-ratio: 16/9;
+}
+
+/* Estilos específicos para consejos */
+.advice-item {
+    padding: 20px;
+}
+
+/* Sidebar (Perfil de usuario) */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 360px;
+}
+
+.profile-section {
+    display: flex;
+    padding: 16px;
+}
+
+/* Contenedor de perfil */
+.profile-container {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+}
+
+/* Avatar de usuario */
+.profile-avatar {
+    background-image: url("https://www.shutterstock.com/image-vector/default-avatar-profile-icon-vector-600nw-1706867365.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    min-height: 128px;
+    width: 128px;
+}
+
+/* Texto de bienvenida */
+.profile-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.welcome-text {
+    color: var(--primary-text);
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    text-align: center;
+}
+
+.welcome-subtitle {
+    color: var(--secondary-text);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.4;
+    text-align: center;
+}
+
+/* Estadísticas de usuario */
+.stats-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 16px;
+}
+
+.stat-card {
+    display: flex;
+    min-width: 158px;
+    flex: 1;
+    flex-direction: column;
+    gap: 8px;
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid var(--border-medium);
+    background-color: var(--background-white);
+    transition: transform 0.2s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px var(--shadow-light);
+}
+
+.stat-label {
+    color: var(--primary-text);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.stat-value {
+    color: var(--primary-text);
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .main-content {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        max-width: 920px;
+        margin: 0 auto;
+    }
+    
+    .stats-section {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 12px 20px;
+    }
+    
+    .nav-links {
+        display: none;
+    }
+    
+    .main-content {
+        padding: 0 12px;
+    }
+    
+    .dashboard-title {
+        font-size: 28px;
+        min-width: auto;
+    }
+    
+    .course-card-container {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .course-image {
+        height: 200px;
+    }
+    
+    .stats-section {
+        flex-direction: column;
+    }
+    
+    .stat-card {
+        min-width: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 8px 16px;
+    }
+    
+    .dashboard-title {
+        font-size: 24px;
+    }
+    
+    .tabs-header {
+        gap: 16px;
+    }
+    
+    .tab p {
+        font-size: 12px;
+    }
+    
+    .profile-avatar {
+        width: 96px;
+        min-height: 96px;
+    }
+    
+    .welcome-text {
+        font-size: 18px;
+    }
+}

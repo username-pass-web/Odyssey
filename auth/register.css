@@ -1,0 +1,394 @@
+/**
+ * Estilos para la página de registro
+ * 
+ * Características:
+ * - Sistema de diseño unificado con variables CSS
+ * - Diseño responsive para móviles y escritorio
+ * - Animaciones y transiciones suaves
+ * - Componentes: formularios, botones, notificaciones
+ */
+
+:root {
+    /* Paleta principal */
+    --color-primary: #111418;
+    --color-primary-hover: #2a2f38;
+    --color-text-primary: #111418;
+    --color-text-secondary: #617289;
+    --color-on-primary: #ffffff;
+    --color-background: #ffffff;
+    --color-card-background: #ffffff;
+    --color-input-background: #f0f2f4;
+    --color-border: #dbe0e6;
+    --color-shadow: rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    font-family: Lexend, "Noto Sans", sans-serif;
+    height: 100%;
+    overflow: hidden;
+    background-color: var(--color-background);
+}
+
+/* Contenedor principal */
+.design-root {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+    background-color: var(--color-background);
+}
+
+.layout-container {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+}
+
+/* Header */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    white-space: nowrap;
+    border-bottom: 1px solid var(--color-border);
+    padding: 12px 40px;
+    background-color: var(--color-background);
+    flex-shrink: 0;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: var(--color-text-primary);
+}
+
+.logo-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.header-title {
+    color: var(--color-text-primary);
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+}
+
+/* Contenido principal */
+.main-content {
+    display: flex;
+    flex: 1;
+    min-height: 0;
+    padding: 20px;
+    gap: 0;
+}
+
+/* Sección de imagen */
+.img-section {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+}
+
+.img-container {
+    height: 100%;
+    min-height: 0;
+}
+
+.img-bg {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: var(--color-background);
+    border-radius: 12px 0px 0px 12px;
+    background-image: url(https://talkpal.ai/wp-content/uploads/2023/04/TalkPal-Illustration-of-students-studying-grammar-lessons-17.png);
+}
+
+/* Sección de registro */
+.register-section {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    min-height: 0;
+    padding: 40px;
+    background-color: var(--color-card-background);
+    justify-content: center;
+    border-radius: 0px 12px 12px 0px;
+    box-shadow: 0 4px 20px var(--color-shadow);
+    overflow-y: auto;
+    border: 1px solid var(--color-border);
+}
+
+.register-title {
+    color: var(--color-text-primary);
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: -0.015em;
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Grupos de formulario */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.form-label {
+    color: var(--color-text-primary);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.4;
+    margin-bottom: 8px;
+    text-align: left;
+}
+
+.form-input {
+    display: flex;
+    width: 100%;
+    min-width: 0;
+    flex: 1;
+    resize: none;
+    overflow: hidden;
+    border-radius: 8px;
+    color: var(--color-text-primary);
+    outline: none;
+    border: 1px solid var(--color-border);
+    background-color: var(--color-input-background);
+    height: 48px;
+    padding: 12px 16px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.4;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-input::placeholder {
+    color: var(--color-text-secondary);
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px rgba(17, 20, 24, 0.1);
+}
+
+/* Botón de registro */
+.button-container {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.register-button {
+    display: flex;
+    min-width: 84px;
+    max-width: 480px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 8px;
+    height: 48px;
+    padding: 0 24px;
+    flex: 1;
+    background-color: var(--color-primary);
+    color: var(--color-on-primary);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: 0.015em;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+.register-button:hover {
+    background-color: var(--color-primary-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.register-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(17, 20, 24, 0.2);
+}
+
+.register-button span {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+/* Enlace de login */
+.login-link {
+    color: var(--color-text-secondary);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.4;
+    text-align: center;
+}
+
+.login-link a {
+    color: var(--color-primary);
+    text-decoration: underline;
+    transition: color 0.2s ease;
+}
+
+.login-link a:hover {
+    color: var(--color-primary-hover);
+}
+
+/* Notificaciones (compartido con login) */
+.popup-notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    font-family: Lexend, "Noto Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    max-width: 320px;
+    transform: translateX(400px);
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.popup-notification.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.popup-notification.success {
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+}
+
+.popup-notification .close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    float: right;
+    margin-left: 10px;
+    padding: 0;
+    line-height: 1;
+}
+
+.popup-notification .close-btn:hover {
+    opacity: 0.8;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+        padding: 15px;
+        gap: 15px;
+    }
+
+    .img-section {
+        flex: 0 0 40%;
+        min-height: 0;
+    }
+
+    .register-section {
+        width: 100%;
+        flex: 1;
+        padding: 30px;
+        border-radius: 12px;
+        min-height: 0;
+    }
+
+    .img-bg {
+        border-radius: 12px;
+    }
+
+    .header {
+        padding: 12px 20px;
+    }
+
+    .register-title {
+        font-size: 28px;
+        margin-bottom: 25px;
+    }
+
+    .form-group {
+        margin-bottom: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .register-title {
+        font-size: 24px;
+    }
+
+    .register-section {
+        padding: 20px;
+    }
+
+    .form-input {
+        height: 44px;
+        padding: 10px 12px;
+    }
+
+    .register-button {
+        height: 44px;
+    }
+}
+
+@media (max-height: 600px) {
+    .header {
+        padding: 8px 40px;
+    }
+
+    .main-content {
+        padding: 15px;
+    }
+
+    .register-section {
+        padding: 30px;
+    }
+
+    .register-title {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-input {
+        height: 44px;
+        padding: 10px 12px;
+    }
+
+    .register-button {
+        height: 44px;
+    }
+}
